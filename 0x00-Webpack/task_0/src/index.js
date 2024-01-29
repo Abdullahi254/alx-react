@@ -1,8 +1,5 @@
-import $ from "jquery";
+const $ = require('jquery');
 
-$(function () {
-    // Add three different paragraphs to the body
-    $('body').append('<p>This is the first paragraph 1.</p>');
-    $('body').append('<p>This is the second paragraph 2.</p>');
-    $('body').append('<p>This is the third paragraph 3.</p>');
-});
+$('body').append('<p>Holberton Dashboard</p>');
+$('body').append('<p>Dashboard data for the students</p>');
+$('body').append('<p>Copyright - Holberton School</p>');
