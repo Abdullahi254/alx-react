@@ -4,7 +4,7 @@ import App from './App/App';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App logOut={()=>console.log("logOut")}/>
+		<App />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
