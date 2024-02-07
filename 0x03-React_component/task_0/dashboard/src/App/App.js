@@ -34,6 +34,7 @@ class App extends Component {
 		if (event.ctrlKey && event.key.toLowerCase() === 'h') {
 			// Trigger logOut function if it exists
 			if (typeof this.props.logOut === 'function') {
+				alert("Logging you out")
 				this.props.logOut();
 			}
 		}
