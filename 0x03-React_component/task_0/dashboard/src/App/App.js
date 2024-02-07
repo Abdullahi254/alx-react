@@ -1,4 +1,4 @@
-import React, { Com, Component } from 'react';
+import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
@@ -21,6 +21,23 @@ const listNotifications = [
 ];
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		// Bind 'this' to the event handler method
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+	}
+	componentDidMount() {
+		document.addEventListener('keydown', this.handleKeyDown);
+	}
+	handleKeyDown(event) {
+		// Check if Ctrl key and H key are pressed down simultaneously
+		if (event.ctrlKey && event.key.toLowerCase() === 'h') {
+			// Trigger logOut function if it exists
+			if (typeof this.props.logOut === 'function') {
+				this.props.logOut();
+			}
+		}
+	}
 	render() {
 		const { isLoggedIn } = this.props
 		return (
@@ -40,10 +57,12 @@ class App extends Component {
 
 App.defaultProps = {
 	isLoggedIn: false,
+	logOut: () => { }
 };
 
 App.propTypes = {
 	isLoggedIn: PropTypes.bool,
+	logOut: PropTypes.func
 };
 
 export default App;
